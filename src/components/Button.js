@@ -10,8 +10,8 @@ class Button extends React.Component {
 
   //helper functions to reduce gross mess of JSX
 
-  renderButtonText(value) {
-    return value === 'english' ? 'Submit' : 'Voorleggen';
+  renderButtonText(language) {
+    return language === 'english' ? 'Submit' : 'Voorleggen';
   }
 
   renderButton(color) {
@@ -19,7 +19,7 @@ class Button extends React.Component {
       <button className={`ui button ${color}`}>
         <LanguageContext.Consumer>
           {/* { (value) => value === 'english' ? 'Submit' : 'Voorleggen' } */}
-          { (value) => this.renderButtonText(value) }
+          { ({ language }) => this.renderButtonText(language) }
         </LanguageContext.Consumer>
       </button>
     );
